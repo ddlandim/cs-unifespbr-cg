@@ -1,14 +1,10 @@
-#include <windows.h>
+#include<windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
-#include <stdbool.h>
+#include<stdbool.h>
 #include <math.h>
 #include <time.h>
-#define MAX_NO_TEXTURES 25 //Definindo o numero maximo de texturas
-
-GLuint texture_id[MAX_NO_TEXTURES];
-
 bool head_right_done , head_left_done, rot_head_flag;
 
 float angle = 45, fAspect, angx = 0, angy = 0, angz = 0,
@@ -17,14 +13,12 @@ float angle = 45, fAspect, angx = 0, angy = 0, angz = 0,
       eye_centerZ = 0.0;
 float head_rotate = 0, head_rotval=-1.2 ;
 
-
-
-void Viewing()  {
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+void Viewing()	{
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
     gluPerspective(angle,fAspect,0.1,800);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 
 
     gluLookAt( eyeX,eyeY,eyeZ -10,
@@ -33,25 +27,27 @@ void Viewing()  {
 
 }
 
-void ChangeSize(GLsizei w, GLsizei h)   {
+void ChangeSize(GLsizei w, GLsizei h)	{
 
-    if ( h == 0 )
-        h = 1;
+	if ( h == 0 )
+		h = 1;
         glViewport(0, 0, w, w);
 
-    fAspect = (GLfloat)w/(GLfloat)h;
-    Viewing();
-    tamTela = w/2.0;
+	fAspect = (GLfloat)w/(GLfloat)h;
+	Viewing();
+	tamTela = w/2.0;
 }
 
 
 
 void init(void) {
-    glClearColor(141/255.0f, 131/255.0, 122/255.0, 1.0f);
+	glClearColor(141/255.0f, 131/255.0, 122/255.0, 1.0f);
 
     glEnable(GL_DEPTH_TEST);
 
 }
+
+
 
 void my_man() {
 
@@ -320,19 +316,6 @@ void my_man() {
 
 
 
-
-void playGame(void) {
-
-     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glClearColor(141/255.0f, 131/255.0, 122/255.0, 1.0f);
-    glPushMatrix();
-     glTranslatef(0.0, 0.35, 0.0);
-
-       my_man();
-       head_rotate_();
-    glPopMatrix();
-    glutSwapBuffers();
-}
 void head_rotate_()
 {
 
@@ -348,11 +331,25 @@ void head_rotate_()
             rot_head_flag = 0;
 
         }
-    }
+        printf("hiii\n");
+     }
 }
 
 
 
+
+void playGame(void)	{
+
+     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    	glClearColor(141/255.0f, 131/255.0, 122/255.0, 1.0f);
+    glPushMatrix();
+     glTranslatef(0.0, 0.35, 0.0);
+
+       my_man();
+       head_rotate_();
+    glPopMatrix();
+    glutSwapBuffers();
+}
 
 void keyboard (unsigned char key, int x, int y){
   switch (key) {
@@ -437,16 +434,16 @@ void Timer(int extra) {
 
 int  main ( int argc, char** argv ){
     glutInit  (&argc, argv );
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH  | GLUT_RGBA);
-    glutInitWindowSize(600,600);
-    glutCreateWindow("Douglas");
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH  | GLUT_RGBA);
+	glutInitWindowSize(600,600);
+	glutCreateWindow("Douglas");
     glutReshapeFunc(ChangeSize);
 
 
-    init();
-    glutDisplayFunc(playGame);
+	init();
+	glutDisplayFunc(playGame);
     glutKeyboardFunc(keyboard);
     glutTimerFunc(0,Timer,10);
-    glutMainLoop();
+	glutMainLoop();
 
 }
