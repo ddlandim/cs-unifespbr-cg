@@ -816,8 +816,8 @@ int  main ( int argc, char** argv ){
 	glutInitWindowSize(600,600);
 	glutCreateWindow("Douglas");
 
-    loadTexture("D:\\ACM\\new_glut\\sky.bmp", 0);
-	loadTexture("D:\\ACM\\new_glut\\grama.bmp", 21);
+    loadTexture("sky.bmp", 0);
+	loadTexture("grama.bmp", 21);
 
     glutReshapeFunc(ChangeSize);
 

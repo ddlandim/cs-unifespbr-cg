@@ -219,3 +219,12 @@
 	<stddef.h>
 	<GL/gl.h>
 
+1542936728 source:z:\d\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\main.c
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+

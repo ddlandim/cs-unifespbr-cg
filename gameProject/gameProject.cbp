@@ -8,20 +8,15 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/gameProject" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="C:/Program Files (x86)/CodeBlocks/MinGW/bin" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/glut32.lib" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/gameProject" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="C:/Program Files (x86)/CodeBlocks/MinGW/bin" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -35,17 +30,15 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/include" />
 		</Compiler>
 		<Linker>
-			<Add library="glut32" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
-			<Add library="winmm" />
 			<Add library="gdi32" />
-			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
-		<Unit filename="main.cpp" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
