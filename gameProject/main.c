@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
-#include<stdbool.h>
+#include <stdbool.h>
 #include <math.h>
 #include <time.h>
 #include"list.h"
@@ -1182,10 +1182,10 @@ int  main ( int argc, char** argv ){
 	glutInitWindowSize(600,600);
 	glutCreateWindow("Douglas");
 
-    loadTexture("sky.bmp", 0);
+    loadTexture("moon.bmp", 0);
     loadTexture("disco.bmp", 1);
 
-    loadTexture("grama.bmp", 21);
+    loadTexture("floor.bmp", 21);
 
     glutReshapeFunc(ChangeSize);
 
