@@ -219,7 +219,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1542936728 source:z:\d\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\main.c
+1544412303 source:z:\d\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\main.c
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -227,4 +227,7 @@
 	<stdbool.h>
 	<math.h>
 	<time.h>
+	"list.h"
+
+1544375615 z:\d\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\list.h
 
