@@ -6,7 +6,8 @@
 #include <math.h>
 #include <time.h>
 #include"list.h"
-GLuint texture_id[25];8
+//#define MAX_NO_TEXTURES 25
+GLuint texture_id[25];
 
 circ_bbuf_t list ;
 bool head_right_done , head_left_done, rot_head_flag;
@@ -720,14 +721,15 @@ void body_moving()
        rightKnee_moving();
        if(dancing == 0)
        {
-           body_walk();
-           if(body_rotate)
-           {
-               angy+=1;
-               if((int) angy%90 == 0)
-                    body_rotate = 0;
-               angy = (int)angy %360; // [0-359]
-           }
+
+       body_walk();
+       if(body_rotate)
+       {
+           angy+=1;
+           if((int) angy%90 == 0)
+            body_rotate = 0;
+       angy = (int)angy %360; // [0-359]
+       }
        }
        dance();
 }
