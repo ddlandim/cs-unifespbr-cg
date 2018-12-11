@@ -4,7 +4,7 @@
 	<GL/glut.h>
 	<stdlib.h>
 
-1453894372 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
+976677772 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -235,4 +235,31 @@
 	"list.h"
 
 1544379215 d:\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\list.h
+
+1544475037 source:d:\users\dldou\googledrive\git\cs-unifespbr-cg\gameproject\main.c
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	"list.h"
+
+1341010376 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341010380 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
+
+1341010374 c:\program files (x86)\codeblocks\mingw\include\math.h
+	<_mingw.h>
+
+1341010376 c:\program files (x86)\codeblocks\mingw\include\time.h
+	<_mingw.h>
+	<stddef.h>
 

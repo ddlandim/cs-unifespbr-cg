@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
-#include <stdbool.h>
+#include<stdbool.h>
 #include <math.h>
 #include <time.h>
 #include"list.h"
@@ -57,22 +57,11 @@ double randfrom(double min, double max)
     return min + (rand() / div);
 }
 GLfloat ambient_light2[4] = {0.4, 0.4, 0.4, 1.0};
-GLfloat ambient_light[4] = {0.0, 0.0, 0.0, 1.0};
 
 GLfloat difuse_light[4] = {0.2, 0.2, 0.2, 1.0};
 GLfloat dspec_light[4] = {0.3, 0.3, 0.3, 1.0};
 
-GLfloat light_pos0[4] = {2.0, 4.0, -5.0, 1.0};
-GLfloat light_dir0[4] = {-2.0, -4.0, -5.0, 1.0};
 
-GLfloat light_pos1[4] = {-2.0, 4.0, -3.0, 1.0};
-GLfloat light_dir1[4] = {3.0, -5.0, -3.0, 1.0};
-
-GLfloat light_pos2[4] = {-2.0, 4.0, -12.0, 1.0};
-GLfloat light_dir2[4] = {3.0, -5.0, -12.0, 1.0};
-
-GLfloat light_pos3[4] = {2.0, 4.0, -18.0, 1.0};
-GLfloat light_dir3[4] = {-2.0, -4.0, -18.0, 1.0};
 
 GLfloat light_pos4[4] = {0.0, 1.0, -5.0, 1.0};
 
@@ -82,7 +71,6 @@ GLfloat obj_Esp[4] = {0.1, 0.1, 0.1, 1.0};
 
 
 
-//object head = (object*)malloc(sizeof(object));
 
 
 
@@ -100,22 +88,20 @@ void getIMGdata( char *pFileName, IMGdata *pImage )
     unsigned short nNumBPP;
 	int i;
 
-    ( (pFile = fopen(pFileName, "rb") ) == NULL );
+    ( (pFile = fopen(pFileName, "rb") )  );
 
     // Seek forward to width and height info
     fseek( pFile, 18, SEEK_CUR );
 
-    ( (i = fread(&pImage->width, 4, 1, pFile) ) != 1 );
+    ( (i = fread(&pImage->width, 4, 1, pFile) )  );
 
-     ( (i = fread(&pImage->height, 4, 1, pFile) ) != 1 );
+     ( (i = fread(&pImage->height, 4, 1, pFile) ) );
 
-     ( (fread(&nNumPlanes, 2, 1, pFile) ) != 1 );
+     ( (fread(&nNumPlanes, 2, 1, pFile) ) );
 
-     ( nNumPlanes != 1 );
 
-     ( (i = fread(&nNumBPP, 2, 1, pFile)) != 1 );
+     ( (i = fread(&nNumBPP, 2, 1, pFile)) );
 
-     ( nNumBPP != 24 );
 
     fseek( pFile, 24, SEEK_CUR );
 
@@ -123,7 +109,7 @@ void getIMGdata( char *pFileName, IMGdata *pImage )
 
     pImage->data = (char*) malloc( nTotalImagesize );
 
-     ( (i = fread(pImage->data, nTotalImagesize, 1, pFile) ) != 1 );
+     ( (i = fread(pImage->data, nTotalImagesize, 1, pFile) ) );
 
 	char charTemp;
     for( i = 0; i < nTotalImagesize; i += 3 )
@@ -194,37 +180,6 @@ glClearColor(141/255.0f, 131/255.0, 122/255.0, 1.0f);
     rightKnee_rotVal= - rot_speed, leftLeg_rotVal = rot_speed,  leftKnee_rotVal = -rot_speed , head_rotval = rot_speed;
     init_buf(&list);
     glLoadIdentity();
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, difuse_light );
-    glLightfv(GL_LIGHT0, GL_SPECULAR, dspec_light );
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos0 );
-    glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, light_dir0);
-    glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 80.0);
-    glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 40.0);
-
-    glLightfv(GL_LIGHT1, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, difuse_light );
-    glLightfv(GL_LIGHT1, GL_SPECULAR, dspec_light );
-    glLightfv(GL_LIGHT1, GL_POSITION, light_pos1 );
-    glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, light_dir1);
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 80.0);
-    glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 20.0);
-
-    glLightfv(GL_LIGHT2, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, difuse_light );
-    glLightfv(GL_LIGHT2, GL_SPECULAR, dspec_light );
-    glLightfv(GL_LIGHT2, GL_POSITION, light_pos2);
-    glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, light_dir2);
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 80.0);
-    glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 40.0);
-
-    glLightfv(GL_LIGHT3, GL_AMBIENT, ambient_light);
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, difuse_light );
-    glLightfv(GL_LIGHT3, GL_SPECULAR, dspec_light );
-    glLightfv(GL_LIGHT3, GL_POSITION, light_pos3);
-    glLightfv(GL_LIGHT3, GL_SPOT_DIRECTION, light_dir3);
-    glLightf(GL_LIGHT3, GL_SPOT_CUTOFF, 80.0);
-    glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 40.0);
 
     glLightfv(GL_LIGHT4, GL_AMBIENT, ambient_light2);
     glLightfv(GL_LIGHT4, GL_DIFFUSE, difuse_light);
@@ -352,7 +307,7 @@ void my_man() {
     glPushMatrix();
     //glLoadIdentity();
 
-    glTranslatef(moveX, 0, moveZ); // translating the whoole man
+        glTranslatef(moveX, 0, moveZ); // translating the whoole man
         glRotatef(angx,1.0,0.0,0.0);
         glRotatef(angy,0.0,1.0,0.0);
         glRotatef(angz,0.0,0.0,1.0);
@@ -824,7 +779,7 @@ void stop_walking()
 }
 bool xdirection_ok()
 {
-    if(moveX< objectX)
+    if(moveX < objectX)
     {
         return angy == 270 ;
     }
@@ -855,6 +810,7 @@ bool xdirection_okz()
     {
         return angy == 90 ;
     }
+
 }
 bool zdirection_okz()
 {
@@ -1182,10 +1138,10 @@ int  main ( int argc, char** argv ){
 	glutInitWindowSize(600,600);
 	glutCreateWindow("Douglas");
 
-    loadTexture("sky.bmp", 0);
-    loadTexture("disco.bmp", 1);
+    loadTexture("D:\\ACM\\new_glut\\sky.bmp", 0);
+    loadTexture("D:\\ACM\\new_glut\\disco.bmp", 1);
 
-    loadTexture("grama.bmp", 21);
+    loadTexture("D:\\ACM\\new_glut\\grama.bmp", 21);
 
     glutReshapeFunc(ChangeSize);
 
@@ -1214,5 +1170,5 @@ int  main ( int argc, char** argv ){
     glutAttachMenu(GLUT_RIGHT_BUTTON);
     glutTimerFunc(0,Timer,1);
 	glutMainLoop();
-
+return 0;
 }
